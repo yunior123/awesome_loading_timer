@@ -8,9 +8,14 @@ class AwesomeLoadingTimer extends StatefulWidget {
   final int? seconds;
   final String? timeOverMsg;
   final Widget? child;
+  final Widget? loadingIndicator;
 
   const AwesomeLoadingTimer(
-      {Key? key, this.seconds, this.child, this.timeOverMsg})
+      {Key? key,
+      this.seconds,
+      this.child,
+      this.timeOverMsg,
+      this.loadingIndicator})
       : super(key: key);
   @override
   _AwesomeLoadingTimerState createState() => _AwesomeLoadingTimerState();
@@ -45,10 +50,14 @@ class _AwesomeLoadingTimerState extends State<AwesomeLoadingTimer> {
   Widget build(BuildContext context) {
     return countOver
         ? Center(
-            child: widget.child ?? Text(widget.timeOverMsg ?? 'No data'),
+            child: widget.child ??
+                Text(
+                  widget.timeOverMsg ?? 'No data',
+                ),
           )
-        : const Center(
-            child: CircularProgressIndicator(),
-          );
+        : widget.loadingIndicator ??
+            const Center(
+              child: CircularProgressIndicator(),
+            );
   }
 }
