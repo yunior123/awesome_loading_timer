@@ -1,7 +1,7 @@
 name: flutter_awesome_loading_timer
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+repository: https://github.com/yunior123/awesome_loading_timer
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
